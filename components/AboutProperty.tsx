@@ -17,8 +17,14 @@ export default function AboutProperty() {
           <h2 className="text-3xl font-bold text-blue-800 mb-4">
             Un lieu de vie d'exception
           </h2>
-          <p className="text-gray-700 text-lg">
-            Nichée sur un terrain de plus de 7300 m², cette maison de 381 m² offre 10 pièces, dont 7 chambres et 7 salles de bain. Idéale pour une grande famille ou une maison d’hôtes. Elle allie confort moderne, grands espaces et calme absolu.
+          <p className="text-gray-700 text-lg mb-4 leading-relaxed">
+            Nichée dans un écrin de verdure de plus de <strong>7300 m²</strong>, cette propriété unique de <strong>381 m² habitables</strong> se compose de <strong>10 pièces spacieuses</strong> dont <strong>7 suites élégantes avec salles de bain privatives</strong>.
+          </p>
+          <p className="text-gray-700 text-lg mb-4 leading-relaxed">
+            Offrant à la fois <strong>calme, intimité</strong> et <strong>prestations haut de gamme</strong>, elle conviendra parfaitement à une grande famille, un projet de <strong>maison d’hôtes de charme</strong>, ou l’organisation de <strong>séminaires privés</strong>.
+          </p>
+          <p className="text-gray-700 text-lg leading-relaxed">
+            Chaque détail a été pensé pour offrir un cadre de vie harmonieux : <strong>matériaux nobles</strong>, <strong>volumes lumineux</strong>, et <strong>ouverture sur la nature</strong>. Un bien rare, prêt à vous accueillir.
           </p>
         </div>
       </div>

@@ -7,6 +7,11 @@ import FeaturesSummary from '@/components/FeaturesSummary';
 import AboutProperty from '@/components/AboutProperty';
 import GallerySection from '@/components/GallerySection';
 import LocationMap from '@/components/LocationMap';
+import HighlightSection from '@/components/HighlightSection';
+import WellnessSection from '@/components/WellnessSection';
+import GarageSection from '@/components/GarageSection';
+import LifestyleSection from '@/components/LifestyleSection';
+import SuitesSection from '@/components/SuitesSection';
 
 const photos = [
   '/images/image1.jpeg',
@@ -20,17 +25,13 @@ export default function PropertyPage() {
       />
       <FeaturesSummary/>
       <AboutProperty/>
+      <SuitesSection />
+      <WellnessSection />
+      <GarageSection />
+      <LifestyleSection />
+      <HighlightSection/>
       <GallerySection/>
       <LocationMap/>
-      {/* <PropertyDetails
-        details={{
-          surface: '200 m²',
-          rooms: 5,
-          bathrooms: 3,
-          address: '123 Rue de la Plage, Nice',
-        }}
-      />
-      <PhotoCarousel photos={photos} /> */}
       <ContactForm />
     </main>
   );
