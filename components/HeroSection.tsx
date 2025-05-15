@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 export default function HeroSection() {
   return (
@@ -15,9 +16,11 @@ export default function HeroSection() {
       <p className="text-xl text-white max-w-xl mb-8">
         381 m² habitables, 7 chambres, jardin, garage et 5 places de parking — un bien rare sur un terrain de 7318 m²
       </p>
-      <Button className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-full">
-        Demander une visite
-      </Button>
+      <Link href={"#contact"}>
+        <Button className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-full">
+          Demander une visite
+        </Button>
+      </Link>
     </section>
   );
 }

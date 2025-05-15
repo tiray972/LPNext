@@ -50,7 +50,7 @@ export default function ContactSection() {
   };
 
   return (
-    <section className="bg-blue-100 py-16 px-4 sm:px-10">
+    <section id="contact" className="bg-blue-100 py-16 px-4 sm:px-10">
       <div className="max-w-4xl mx-auto bg-white p-8 rounded-lg shadow-md">
         <h2 className="text-3xl font-bold text-blue-800 mb-6 text-center">
           Contactez-nous
