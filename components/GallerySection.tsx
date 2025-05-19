@@ -13,7 +13,7 @@ const imageList = Array.from({ length: 10 }, (_, i) => `/images/image${i + 1}.jp
 
 export default function GallerySection() {
   return (
-    <section className="bg-blue-50 py-16 px-4 sm:px-10">
+    <section id="galerie" className="bg-blue-50 py-16 px-4 sm:px-10">
       <div className="max-w-6xl mx-auto">
         <h2 className="text-3xl font-bold text-blue-800 mb-8 text-center">
           Galerie Photo
