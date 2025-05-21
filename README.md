@@ -1,3 +1,111 @@
+# 🛒 Architecture E-commerce BtoBtoC (Type Shopify)
+
+## 🔧 Tech Stack
+
+| Élément          | Choix                          |
+|------------------|--------------------------------|
+| Frontend         | Next.js                        |
+| Backend (API)    | Firebase Cloud Functions       |
+| Base de données  | Firebase Firestore             |
+| Authentification | Firebase Auth                  |
+| Stockage         | Firebase Storage               |
+| Paiement         | Stripe                         |
+| Hébergement      | Vercel / Firebase Hosting      |
+
+---
+
+## 🧱 Modules Fonctionnels
+
+| Module                    | Description                                                                 |
+|---------------------------|-----------------------------------------------------------------------------|
+| 🔐 Authentification        | Login/Signup (client & vendeur), gestion des rôles                         |
+| 🏬 Gestion des boutiques   | Chaque vendeur peut créer et gérer sa boutique                             |
+| 📦 Produits               | CRUD de produits, variantes, images, catégories                            |
+| 🛒 Panier & Checkout      | Panier client, validation commande, sélection livraison & paiement          |
+| 💳 Paiement                | Intégration Stripe ou autre provider                                       |
+| 📑 Commandes              | Suivi des commandes par client et vendeur                                  |
+| ⭐ Avis produits           | Commentaires & notes clients                                               |
+| 🧾 Facturation             | Génération de factures PDF (optionnel)                                     |
+| 🛠️ Paramètres boutique     | Paramètres personnalisables pour chaque vendeur                            |
+| 📊 Statistiques           | Chiffre d'affaires, ventes, vues (Firebase Analytics / BigQuery)           |
+
+---
+
+## 🗃️ Structure Firestore (Collections)
+
+### 👥 `users`
+- `uid`
+- `role`: `admin` | `seller` | `customer`
+- `email`, `name`, `createdAt`
+- Lié à une boutique (`seller`)
+
+---
+
+### 🏪 `shops`
+- `name`, `slug`, `description`, `logoURL`
+- `ownerId` → `users.uid`
+- `createdAt`, `active`, `theme`
+
+---
+
+### 🛍️ `products`
+- `title`, `description`, `price`, `images`, `inventory`
+- `shopId`, `categoryId`
+- `variants[]`: ex: tailles, couleurs
+- `status`: `draft`, `active`, `archived`
+- `createdAt`, `updatedAt`
+
+---
+
+### 🧾 `orders`
+- `userId`, `shopId`, `productItems[]`
+- `total`, `status`: `pending`, `paid`, `shipped`, `cancelled`
+- `shippingAddress`
+- `createdAt`, `paymentId`
+
+---
+
+### 💳 `payments`
+- `orderId`, `amount`, `provider`, `status`
+- `transactionId`, `createdAt`
+
+---
+
+### 🎯 `categories`
+- `name`, `slug`, `description`
+- `parentCategoryId?`
+
+---
+
+### ⭐ `reviews`
+- `userId`, `productId`, `rating`, `comment`
+- `createdAt`, `visible`
+
+---
+
+### 🛒 `carts` (optionnel)
+- `userId`
+- `items[]`: `productId`, `quantity`, `variant`
+
+---
+
+## 🔐 Sécurité & Rôles
+
+### Rôles :
+- `admin` : contrôle complet
+- `seller` : sa boutique uniquement
+- `customer` : achats uniquement
+
+### Claims :
+```json
+{
+  "role": "seller"
+}
+
+
+
+
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
